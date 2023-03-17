@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>{籠號}-異常紀錄</title>
+    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+          integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+</head>
+
+<body>
+<h1>{籠號}-異常紀錄</h1>
+<a href="./index.html">回到上一頁</a>
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">區域</th>
+            <th scope="col">房號</th>
+            <th scope="col">籠號</th>
+            <th scope="col">登記PI</th>
+            <th scope="col">IACUC NO.</th>
+            <th scope="col">通知對象</th>
+            <th scope="col">記錄日期</th>
+            <th scope="col">動物臨床症狀</th>
+            <th scope="col">是否已通知</th>
+            <th scope="col">動作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>A</td>
+            <td>101</td>
+            <td>01</td>
+            <td>lorem</td>
+            <td>107030001</td>
+            <td>王大明</td>
+            <td>xxxx/xx/xx</td>
+            <td>red eyes</td>
+            <td>否</td>
+            <td>
+                <button class="btn btn-primary">
+                    內容
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>B</td>
+            <td>102</td>
+            <td>03</td>
+            <td>lorem</td>
+            <td>107030002</td>
+            <td>王小明</td>
+            <td>xxxx/xx/xx</td>
+            <td>tail necrosis</td>
+            <td>否</td>
+            <td>
+                <button class="btn btn-primary">
+                    內容
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td>C</td>
+            <td>103</td>
+            <td>06</td>
+            <td>llorem</td>
+            <td>107030022</td>
+            <td>王中明</td>
+            <td>xxxx/xx/xx</td>
+            <td>circling</td>
+            <td>是</td>
+            <td>
+                <button class="btn btn-primary">
+                    內容
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-end mt-5">
+    <button class="btn btn-primary">
+        新增一筆異常紀錄
+    </button>
+</div>
+
+<script>
+    $("td button").click(function (){
+            window.location.href = "./errorEdit.html";
+    });
+
+    $(".d-grid button").click(function (){
+        let trTag = document.createElement("tr");
+        let tdElements = ["D", "105","24", "test","1023233", "王迷你明", "xxxx/xx/xx", "unknown", "否"];
+        tdElements.forEach(function (text){
+            let tdTag = document.createElement("td");
+            tdTag.innerText=text;
+            trTag.appendChild(tdTag);
+        });
+        let tdTag = document.createElement("td");
+        let contentButton = document.createElement("button");
+        contentButton.className="btn btn-primary";
+        contentButton.innerText="內容";
+        tdTag.appendChild(contentButton);
+        trTag.appendChild(tdTag);
+
+        document.querySelector("tbody").appendChild(trTag);
+    });
+</script>
+
+<script crossorigin="anonymous"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1569,6 +1569,118 @@
                     </div>
                 </td>
             </tr>
+            <tr>
+                <th class="col-1" scope="row">B</th>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1 bg-success">
+                    <div class="d-grid">
+                        <button class="btn" type="button">3</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="col-1" scope="row">C</th>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1 bg-success">
+                    <div class="d-grid">
+                        <button class="btn" type="button">2</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">1</button>
+                    </div>
+                </td>
+                <td class="col-1 bg-primary">
+                    <div class="d-grid">
+                        <button class="btn" type="button">2</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="col-1" scope="row">D</th>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1 bg-danger">
+                    <div class="d-grid">
+                        <button class="btn" type="button">3</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1 bg-danger">
+                    <div class="d-grid">
+                        <button class="btn" type="button">1</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th class="col-1" scope="row">E</th>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+                <td class="col-1">
+                    <div class="d-grid">
+                        <button class="btn" type="button">0</button>
+                    </div>
+                </td>
+            </tr>
 
 
 
@@ -1597,11 +1709,14 @@
             $(this)[0].innerText++;
             alert("已新增一筆異常紀錄!");
         }
+        else{
+            window.location.href = "./errorRecordList.html";
 
+        }
     });
 
     $(".dropdown-menu li a").click(function () {
-        if ($(this)[0].parentElement.parentElement.id == "shelves") {
+        if ($(this)[0].parentElement.parentElement.id === "shelves") {
             table.hidden = false;
             let tableName = document.getElementById("tableName");
             let tableName2 = document.getElementById("tableName2");

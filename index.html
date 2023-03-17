@@ -18,7 +18,7 @@
         </ol>
     </nav>
 
-    
+
     <div class="btn-group">
         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             區域
@@ -54,7 +54,7 @@
         <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             架號
         </button>
-        <ul class="dropdown-menu dropdown-menu-dark">
+        <ul class="dropdown-menu dropdown-menu-dark" id="shelves">
             <li><a class="dropdown-item" href="#">B04-01</a></li>
             <li><a class="dropdown-item" href="#">B05-01</a></li>
             <li><a class="dropdown-item" href="#">B05-02</a></li>
@@ -70,18 +70,63 @@
 
     <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
-          <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">隻數盤點</button>
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"
+                type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">隻數盤點</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">異常狀況</button>
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"
+                type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">異常狀況</button>
         </li>
         <li class="nav-item" role="presentation">
-          <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">分籠</button>
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane"
+                type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">分籠</button>
         </li>
-      </ul>
-      <div class="tab-content" id="myTabContent">
-        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+    </ul>
 
+    <div class="tab-content mt-5" id="myTabContent">
+        <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab"
+            tabindex="0">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col" id="tableName"></th>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <!-- <th scope="col">5</th>
+                        <th scope="col">6</th>
+                        <th scope="col">7</th>
+                        <th scope="col">8</th>  -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">A</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">B</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">C</th>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>Hello</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">D</th>
+                        <td>Larry the Bird</td>
+                        <td>@twitter</td>
+                        <td>Hello</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
         <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 
@@ -89,22 +134,27 @@
         <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
             呈現分籠功能
         </div>
-      </div>
+    </div>
 
-      <script>
+    <script>
         const date = new Date();
         let day = date.getDate();
         let month = date.getMonth() + 1;
         let year = date.getFullYear();
-        document.title = `${year}/${month}/${day}-盤點紀錄` ;
+        document.title = `${year}/${month}/${day}-盤點紀錄`;
         let pageName = document.querySelector(".active.breadcrumb-item");
-        pageName.innerText =`${year}/${month}/${day}-盤點紀錄` ; 
-        
-        $(".dropdown-menu li a").click(function(){
+        pageName.innerText = `${year}/${month}/${day}-盤點紀錄`;
+
+
+        $(".dropdown-menu li a").click(function () {
+            if($(this)[0].parentElement.parentElement.id=="shelves"){
+                let tableName = document.getElementById("tableName");
+                tableName.innerText=$(this).text(); 
+            }
             var selText = $(this).text();
-            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
-          });
-      </script>
+            $(this).parents('.btn-group').find('.dropdown-toggle').html(selText + ' <span class="caret"></span>');
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
